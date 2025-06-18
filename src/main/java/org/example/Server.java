@@ -3,6 +3,7 @@ package org.example;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -40,7 +41,7 @@ public class Server {
     }
 
     @lombok.SneakyThrows
-    private void handleConnection(Socket socket) {
+    private void handleConnection(Socket socket)  throws URISyntaxException {
         try (
                 final var in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 final var out = new BufferedOutputStream(socket.getOutputStream());
